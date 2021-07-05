@@ -1,0 +1,9 @@
+<p>portfolio-list works!</p>
+
+<div *ngIf="portfolios">
+  <p>test</p>
+  <p *ngFor="let portfolio of portfolios | async">
+    {{ portfolio.title }}
+  </p>
+</div>
+
