@@ -1,5 +1,5 @@
 import {Portfolio} from '../models/portfolio';
-import {Actions, ADD_PORTFOLIO} from '../actions/portfolio.actions';
+import {Actions, ADD_PORTFOLIO, DELETE_PORTFOLIO} from '../actions/portfolio.actions';
 
 export const portfolioFeatureKey = 'portfolio';
 
@@ -11,13 +11,13 @@ export const initialState: Portfolio = {
 };
 
 export function portfolioReducer(state: Portfolio[] = [initialState], action: Actions): Portfolio[] {
-  console.log(action.type);
   switch (action.type) {
     case ADD_PORTFOLIO:
       return [...state, action.payload];
+    case DELETE_PORTFOLIO:
+      return state.filter(s => s !== action.payload);
     default: {
       console.log(state);
-
       return state;
     }
   }

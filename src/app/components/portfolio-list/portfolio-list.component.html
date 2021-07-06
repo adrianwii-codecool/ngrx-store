@@ -1,9 +1,13 @@
 <p>portfolio-list works!</p>
 
 <div *ngIf="portfolios">
-  <p>test</p>
-  <p *ngFor="let portfolio of portfolios | async">
-    {{ portfolio.title }}
+  <p *ngFor="let portfolio of portfolios | async" >
+    <a [href]="portfolio.url">
+      {{ portfolio.title }} {{ portfolio.primaryLanguage }} {{ portfolio.author }}
+    </a>
+    <button (click)="deletePortfolio(portfolio)">DELETE</button>
   </p>
 </div>
+
+<app-portfolio-form></app-portfolio-form>
 
